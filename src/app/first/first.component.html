@@ -1,0 +1,15 @@
+<p>Je suis {{ name }} {{ prenom }} </p>
+
+<div [hidden]="hd" [style.backgroundColor]="color">
+    Formation en Angular
+</div>
+
+<button (click)="showAlert()" class="btn btn-primary">Alert</button>
+
+<br>
+
+<input [(ngModel)]="name" type="text" class="form-control">
+
+<br>
+
+<app-enfant (msg)="TraitementDuParent($event)" [ministere]="nameParent" ></app-enfant>
