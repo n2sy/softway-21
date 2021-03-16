@@ -1,8 +1,10 @@
+<input type="text" class="form-control">
+<br>
 <ol class="list-group">
     <li class="list-group-item"
-    *ngFor="let serv of ListServeurs"
+    *ngFor="let serv of ListServeurs | filter"
     [ngClass]="setClass(serv.status)">
-    {{ serv.nom }} | {{ serv.type }} | {{ serv.startDate }}
+    {{ serv.nom | short:15 }} | {{ serv.type }} | {{ serv.startDate | date:'fullDate' | uppercase }} 
     <span class="badge badge-secondary"> {{ serv.status }}</span>
 
     </li>

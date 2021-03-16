@@ -12,6 +12,9 @@ import { DetailComponent } from './detail/detail.component';
 import { DirectComponent } from './direct/direct.component';
 import { MswordComponent } from './msword/msword.component';
 import { ManageServersComponent } from './manage-servers/manage-servers.component';
+import { CustomDirDirective } from './custom-dir.directive';
+import { ShortPipe } from './short.pipe';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { ManageServersComponent } from './manage-servers/manage-servers.componen
     DetailComponent,
     DirectComponent,
     MswordComponent,
-    ManageServersComponent
+    ManageServersComponent,
+    CustomDirDirective,
+    ShortPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
