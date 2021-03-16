@@ -1,0 +1,9 @@
+<ol class="list-group">
+    <li class="list-group-item"
+    *ngFor="let serv of ListServeurs"
+    [ngClass]="setClass(serv.status)">
+    {{ serv.nom }} | {{ serv.type }} | {{ serv.startDate }}
+    <span class="badge badge-secondary"> {{ serv.status }}</span>
+
+    </li>
+</ol>
