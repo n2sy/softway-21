@@ -16,6 +16,7 @@ import { CustomDirDirective } from './custom-dir.directive';
 import { ShortPipe } from './short.pipe';
 import { FilterPipe } from './filter.pipe';
 import { NoImagePipe } from './no-image.pipe';
+import { FirstService } from './services/first.service';
 
 @NgModule({
   declarations: [

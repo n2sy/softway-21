@@ -1,10 +1,12 @@
 <div class="container">
     <div class="row">
         <div class="col-md-5">
-            <app-liste (persToCV)="traitementCV($event)" [lstPersonne]="listePersonne"></app-liste>
+            <app-liste (persToCV)="traitementCV($event)"></app-liste>
         </div>
         <div class="col-md-7">
             <app-detail [pers]="persSelected" ></app-detail>
         </div>
     </div>
+    <button (click)="addNewPerson()" class="btn btn-primary">Ajouter Personne</button>
+    <button (click)="showList()" class="btn btn-primary">CV LIST</button>
 </div>

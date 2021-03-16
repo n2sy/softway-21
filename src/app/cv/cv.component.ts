@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Personne } from '../models/personne';
+import { FirstService } from '../services/first.service';
+import { ListPersonsService } from '../services/list-persons.service';
 
 @Component({
   selector: 'app-cv',
@@ -8,19 +10,25 @@ import { Personne } from '../models/personne';
 })
 export class CvComponent implements OnInit {
   persSelected : Personne;
-  listePersonne : Personne[] = [
-    new Personne(1, "nidhal", "jelassi", 38, "enseignant", "nidhal.jpg"),
-    new Personne(2, "bart", "simpson", 12, "ingénieur", "bart.jpg"),
-    new Personne(3, "homer", "simpson", 55, "tehcnicien", "homer.jpg"),
-    new Personne(4, "marge", "simpson", 77, "tehcnicien")
-  ]
-  constructor() { }
+  listePersonne : Personne[] = [];
+  
+  constructor(private persService : ListPersonsService) { }
 
   ngOnInit(): void {
+    this.listePersonne = this.persService.getListPersonnes();
   }
 
   traitementCV(p) {
     this.persSelected = p;
+  }
+
+  addNewPerson() {
+    this.persService.addPerson();
+  }
+
+  showList() {
+    console.log(this.persService.getListPersonnes());
+    
   }
 
 }
