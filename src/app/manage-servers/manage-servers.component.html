@@ -1,11 +1,12 @@
-<input type="text" class="form-control">
+<input type="text" class="form-control" [(ngModel)]="selectedStatus">
 <br>
 <ol class="list-group">
     <li class="list-group-item"
-    *ngFor="let serv of ListServeurs | filter"
+    *ngFor="let serv of ListServeurs | filter:selectedStatus"
     [ngClass]="setClass(serv.status)">
     {{ serv.nom | short:15 }} | {{ serv.type }} | {{ serv.startDate | date:'fullDate' | uppercase }} 
     <span class="badge badge-secondary"> {{ serv.status }}</span>
 
     </li>
 </ol>
+<button (click)="addNewServer()" class="btn btn-success">Add New Server</button>

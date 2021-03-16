@@ -7,6 +7,7 @@ import { Serveur } from '../models/serveur';
   styleUrls: ['./manage-servers.component.css']
 })
 export class ManageServersComponent implements OnInit {
+  selectedStatus : string ="";
   ListServeurs : Serveur[] = [
     new Serveur("production Server", "small", "stable", new Date(2021, 2, 12)),
     new Serveur("testing Production Server", "large", "offline", new Date(2020, 12, 2)),
@@ -24,6 +25,13 @@ export class ManageServersComponent implements OnInit {
       'list-group-item-danger' : status == "critical",
       'list-group-item-warning' : status == "offline" 
     }
+  }
+
+  addNewServer() {
+    this.ListServeurs.push(
+      new Serveur("New Server", "small", "stable", new Date(2020, 7, 23))
+
+    )
   }
 
 }

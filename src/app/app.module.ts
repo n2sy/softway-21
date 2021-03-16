@@ -15,6 +15,7 @@ import { ManageServersComponent } from './manage-servers/manage-servers.componen
 import { CustomDirDirective } from './custom-dir.directive';
 import { ShortPipe } from './short.pipe';
 import { FilterPipe } from './filter.pipe';
+import { NoImagePipe } from './no-image.pipe';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { FilterPipe } from './filter.pipe';
     ManageServersComponent,
     CustomDirDirective,
     ShortPipe,
-    FilterPipe
+    FilterPipe,
+    NoImagePipe
   ],
   imports: [
     BrowserModule,

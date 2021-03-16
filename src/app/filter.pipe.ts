@@ -1,12 +1,24 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { Serveur } from './models/serveur';
 
 @Pipe({
-  name: 'filter'
+  name: 'filter',
+  pure: false
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(value: Serveur[], selectedStatus : string): Serveur[] {
+    if(selectedStatus.length == 0)
+      return value;
+    else {
+      let newServers : Serveur[] = [];
+      for (const serv of value) {
+        if(serv['status'] == selectedStatus)
+          newServers.push(serv);
+        
+      }
+      return newServers;
+    }
   }
 
 }
