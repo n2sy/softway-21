@@ -1,0 +1,17 @@
+<div style="height: 200px; width: 200px;" [ngStyle]="{
+    'backgroundColor' : bg,
+    'color' : cl
+}">
+   NgStyle - Formation en Angular
+</div>
+
+
+<div class="c1" style="height: 200px; width: 200px;" [ngClass]="{
+    c1: class1,
+    c2: class2,
+    c3 : class3
+}" >
+   NgClass - Formation en Angular
+</div>
+
+<button (click)="changeClass()" class="btn btn-primary">Switch Class</button>

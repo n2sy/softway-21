@@ -1,0 +1,24 @@
+<div class="container">
+    <div [ngStyle]="{
+        'backgroundColor' : bg,
+        'color' : cl,
+        'fontSize' : size,
+        'fontFamily': font    
+    }">Formation en Angular avec MERS</div>
+
+    backgroundColor : <br>
+    <input [(ngModel)]="bg" type="text" class="form-control">
+    
+    Text Color : <br>
+    <input [(ngModel)]="cl" type="text" class="form-control">
+    
+    Font Size : <br>
+    <input #in (change)="changeSize(in)" type="number" class="form-control">
+
+    
+    
+    Font-Family : <br>
+    <select class="form-control" [(ngModel)]="font">
+        <option *ngFor="let f of listFonts" [value]="f">{{f}}</option>
+    </select>
+</div>
