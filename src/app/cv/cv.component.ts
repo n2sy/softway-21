@@ -22,9 +22,7 @@ export class CvComponent implements OnInit {
     this.persSelected = p;
   }
 
-  addNewPerson() {
-    this.persService.addPerson();
-  }
+  
 
   showList() {
     console.log(this.persService.getListPersonnes());

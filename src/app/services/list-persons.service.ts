@@ -17,13 +17,22 @@ export class ListPersonsService {
     return this.listePersonne;
   }
 
-  addPerson() {
-    this.listePersonne.push(
-      new Personne(3, "New", "Person", 55, "tehcnicien", "homer.jpg")
-    )
+  addPerson(newP) {
+    newP.id = this.listePersonne.length + 2;
+    this.listePersonne.push(newP);
   }
 
   getPersonById(id) {
     return this.listePersonne.find(p => p.id == id)
+  }
+
+  deletePerson(p) {
+    let i = this.listePersonne.indexOf(p)
+    this.listePersonne.splice(i, 1);
+  }
+
+  updatePerson(p) {
+    let i = this.listePersonne.indexOf(p);
+    this.listePersonne[i] = p;
   }
 }

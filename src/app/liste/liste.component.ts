@@ -5,8 +5,7 @@ import { ListPersonsService } from '../services/list-persons.service';
 @Component({
   selector: 'app-liste',
   templateUrl: './liste.component.html',
-  styleUrls: ['./liste.component.css'],
-  providers: [ListPersonsService]
+  styleUrls: ['./liste.component.css']
 })
 export class ListeComponent implements OnInit {
   lstPersonne : Personne[] = [];
