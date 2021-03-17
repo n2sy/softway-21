@@ -21,6 +21,10 @@ import { RecruterComponent } from './recruter/recruter.component';
 import { HomeComponent } from './home/home.component';
 import { ROUTING_MERS } from './app.routing';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AddComponent } from './add/add.component';
+import { UpdateComponent } from './update/update.component';
+import { InfosComponent } from './infos/infos.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -41,7 +45,11 @@ import { NavbarComponent } from './navbar/navbar.component';
     NoImagePipe,
     RecruterComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    AddComponent,
+    UpdateComponent,
+    InfosComponent,
+    NotFoundComponent
   ],
   imports: [
   BrowserModule,

@@ -22,4 +22,8 @@ export class ListPersonsService {
       new Personne(3, "New", "Person", 55, "tehcnicien", "homer.jpg")
     )
   }
+
+  getPersonById(id) {
+    return this.listePersonne.find(p => p.id == id)
+  }
 }
