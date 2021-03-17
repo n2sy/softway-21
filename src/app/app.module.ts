@@ -18,6 +18,10 @@ import { FilterPipe } from './filter.pipe';
 import { NoImagePipe } from './no-image.pipe';
 import { FirstService } from './services/first.service';
 import { RecruterComponent } from './recruter/recruter.component';
+import { HomeComponent } from './home/home.component';
+import { ROUTING_MERS } from './app.routing';
+import { NavbarComponent } from './navbar/navbar.component';
+
 
 @NgModule({
   declarations: [
@@ -35,11 +39,14 @@ import { RecruterComponent } from './recruter/recruter.component';
     ShortPipe,
     FilterPipe,
     NoImagePipe,
-    RecruterComponent
+    RecruterComponent,
+    HomeComponent,
+    NavbarComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule
+  BrowserModule,
+    FormsModule,
+    ROUTING_MERS
   ],
   providers: [],
   bootstrap: [AppComponent]
