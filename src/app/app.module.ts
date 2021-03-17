@@ -25,6 +25,8 @@ import { AddComponent } from './add/add.component';
 import { UpdateComponent } from './update/update.component';
 import { InfosComponent } from './infos/infos.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { SubServersModule } from './sub-servers/sub-servers.module';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -49,12 +51,14 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AddComponent,
     UpdateComponent,
     InfosComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    LoginComponent
   ],
   imports: [
   BrowserModule,
     FormsModule,
-    ROUTING_MERS
+    ROUTING_MERS,
+    //SubServersModule
   ],
   providers: [],
   bootstrap: [AppComponent]

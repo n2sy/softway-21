@@ -1,0 +1,35 @@
+<form #f="ngForm" (ngSubmit)="showForm(f)">
+    <input ngModel #in="ngModel" required minlength=6  type="text" class="form-control" name="in">
+    <div *ngIf="in.invalid && in.touched" class="alert alert-danger">
+        <p *ngIf="in.errors.required">Ce champ est obligatoire</p>
+        <p *ngIf="in.errors.minlength">Le nbre de caractères minimal est 6</p>
+
+    </div>
+
+    <label for="login">Login</label>
+    <input #login="ngModel" ngModel type="text" required email class="form-control" id="login" name="login">
+
+    <div *ngIf="login.invalid && login.touched" class="alert alert-danger">Veuillez saisir une adresse mail valide</div>
+    <label for="pwd">Mot de passe</label>
+    <input ngModel type="text" class="form-control" id="pwd" name="password">
+
+  
+
+    <label for="section">Section</label>
+    <select [ngModel]="defaultSection" id="section" class="form-control" name="section">
+        <option value="gl">Génie Logiciel</option>
+        <option value="dsen">Data Science</option>
+        <option value="dmwm">Developpement Mobile</option>
+    </select>
+
+    Commentaire : <br>
+    <input [(ngModel)]="defautlComment" type="text" class="form-control" name="comment">
+    {{ defautlComment }}
+
+    <pre>
+        {{ f.value | json}}
+    </pre>
+
+    <button [disabled]="f.invalid" class="btn btn-primary">Valider</button><br>
+    <button (click)="resetForm(f)" class="btn btn-info">Reset</button>
+</form>

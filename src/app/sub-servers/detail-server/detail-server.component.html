@@ -1,0 +1,7 @@
+<strong> {{oneServeur.name }} </strong>
+<br>
+<p>Le statut du serveur est {{oneServeur.status }}</p>
+
+<button [disabled]="ds" class="btn btn-info">Editer</button>
+<br>
+<i *ngIf="ds">Impossible d'editer ce serveur </i>
