@@ -9,7 +9,7 @@ import { ListPersonsService } from '../services/list-persons.service';
   styleUrls: ['./update.component.css']
 })
 export class UpdateComponent implements OnInit {
-  pers: Personne;
+  pers;
   constructor(private activatedRoute : ActivatedRoute,
     private router: Router,
     private persServ : ListPersonsService) { }
@@ -17,14 +17,30 @@ export class UpdateComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(
       (p) => {
-        this.pers = this.persServ.getPersonById(p.get('id'))
+        this.persServ.getPersonByIdAPI(p.get('id')).subscribe(
+          (result) => {
+            this.pers = result
+          },
+          (error) => {
+            console.log("Problem with getPerson");
+            
+          }
+        )
       }
     )
   }
 
   updatePerson() {
-    this.persServ.updatePerson(this.pers);
-    this.router.navigate(['/cv']);
+    //this.persServ.updatePerson(this.pers);
+    //this.router.navigate(['/cv']);
+    this.persServ.updatePersonAPI(this.pers).subscribe(
+      (result) => {
+        this.router.navigate(['/cv']);
+      },
+      (error) => {
+        console.log("Problem with updatePerson")
+      }
+    )
   }
 
 }

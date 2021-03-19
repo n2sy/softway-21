@@ -38,13 +38,26 @@ export class ListPersonsService {
     return this.listePersonne.find(p => p.id == id)
   }
 
+  getPersonByIdAPI(id) {
+    return this.http.get(`${this.link}/${id}`);
+    //this.http.get(this.link + "/" + id);
+  }
+
   deletePerson(p) {
     let i = this.listePersonne.indexOf(p)
     this.listePersonne.splice(i, 1);
   }
 
+  deletePersonAPI(id) {
+    return this.http.delete(`${this.link}/${id}`);
+  }
+
   updatePerson(p) {
     let i = this.listePersonne.indexOf(p);
     this.listePersonne[i] = p;
+  }
+
+  updatePersonAPI(p) {
+    return this.http.put(`${this.link}/${p._id}`, p);
   }
 }

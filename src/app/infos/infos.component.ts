@@ -9,7 +9,7 @@ import { ListPersonsService } from '../services/list-persons.service';
   styleUrls: ['./infos.component.css']
 })
 export class InfosComponent implements OnInit {
-  pers : Personne;
+  pers ;
   constructor(private activatedRoute : ActivatedRoute,
     private router: Router,
     private persServ : ListPersonsService) { }
@@ -20,7 +20,19 @@ export class InfosComponent implements OnInit {
 
     this.activatedRoute.paramMap.subscribe(
       (p : ParamMap) => {
-        this.pers = this.persServ.getPersonById(p.get('id'))
+        this.persServ.getPersonByIdAPI(p.get('id')).subscribe(
+          (result) => {
+            this.pers = result
+          },
+          (error) => {
+            console.log("Problem with getPersonById");
+            
+          }
+        )
+      },
+      (error) => {
+        console.log("Problem with Route Params");
+        
       }
     )
   }
@@ -28,15 +40,24 @@ export class InfosComponent implements OnInit {
   deletePerson() {
     if(confirm('Etes-vous sur de vouloir supprimer cette personne ? '))
       {
-        this.persServ.deletePerson(this.pers);
-        this.router.navigateByUrl('/cv');
+        //this.persServ.deletePerson(this.pers);
+        this.persServ.deletePersonAPI(this.pers["_id"]).subscribe(
+          (result) => {
+            this.router.navigateByUrl('/cv');
+          },
+          (error) => {
+            console.log("Problem with deletePerson");
+            
+          }
+        )
+        
       }
 
 
   }
 
   updateThisPerson() {
-    this.router.navigate(['/cv', 'edit', this.pers.id])
+    this.router.navigate(['/cv', 'edit', this.pers._id])
   }
 
 }

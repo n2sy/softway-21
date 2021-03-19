@@ -9,11 +9,12 @@ import { Personne } from '../models/personne';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
-  @Input() pers : Personne;
+  @Input() pers ;
   constructor(private recServ : ListRecruesService,
     private router : Router) { }
 
   ngOnInit(): void {
+    
   }
 
   addNewRecrue() {
@@ -21,7 +22,9 @@ export class DetailComponent implements OnInit {
   }
 
   goToDetails() {
-    this.router.navigate(['/cv', this.pers.id ])
+    //console.log(this.pers);
+
+    this.router.navigate(['/cv', this.pers._id ])
   }
 
 }
