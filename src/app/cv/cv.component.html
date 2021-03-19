@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-5">
-            <app-liste (persToCV)="traitementCV($event)"></app-liste>
+            <app-liste (persToCV)="traitementCV($event)" [lstPersonne]="listePersonne"></app-liste>
         </div>
         <div class="col-md-7">
             <app-detail [pers]="persSelected" ></app-detail>

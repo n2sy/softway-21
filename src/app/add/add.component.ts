@@ -16,8 +16,19 @@ export class AddComponent implements OnInit {
   }
 
   addNewPerson(newPers) {
-    this.persService.addPerson(newPers);
-    this.router.navigateByUrl('/cv');
+    //this.persService.addPerson(newPers);
+    this.persService.addPersonAPI(newPers).subscribe(
+      (result) => {
+        console.log(result);
+        this.router.navigateByUrl('/cv');
+        
+      },
+      (error) => {
+        console.log("Problem with AddPerson");
+        
+      }
+    )
+    
 
 
   }

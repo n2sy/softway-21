@@ -27,6 +27,10 @@ import { InfosComponent } from './infos/infos.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SubServersModule } from './sub-servers/sub-servers.module';
 import { LoginComponent } from './login/login.component';
+import { HttpComponent } from './http/http.component';
+
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -53,12 +57,14 @@ import { LoginComponent } from './login/login.component';
     UpdateComponent,
     InfosComponent,
     NotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    HttpComponent
   ],
   imports: [
   BrowserModule,
     FormsModule,
     ROUTING_MERS,
+    HttpClientModule
     //SubServersModule
   ],
   providers: [],
