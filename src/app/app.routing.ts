@@ -8,15 +8,16 @@ import { MswordComponent } from "./msword/msword.component";
 import { UpdateComponent } from "./update/update.component";
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from "./login/login.component";
+import { LoginGuard } from "./login.guard";
 
 
 const myRoutes : Routes = [
     {path:'', component: HomeComponent},
     {path:'cv', children: [
         {path:'', component: CvComponent},
-        {path:'add', component: AddComponent},
+        {path:'add', component: AddComponent, canActivate: [LoginGuard]},
         {path:':id', component: InfosComponent},
-        {path:'edit/:id', component: UpdateComponent},
+        {path:'edit/:id', component: UpdateComponent, canActivate: [LoginGuard]},
     ]},
     {path:'servers', component: ManageServersComponent},
     {path:'ms-word', component: MswordComponent},

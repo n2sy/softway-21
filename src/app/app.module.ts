@@ -30,6 +30,7 @@ import { LoginComponent } from './login/login.component';
 import { HttpComponent } from './http/http.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { LoginGuard } from './login.guard';
 
 
 
@@ -67,7 +68,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
     //SubServersModule
   ],
-  providers: [],
+  providers: [LoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

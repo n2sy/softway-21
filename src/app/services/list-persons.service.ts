@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Personne } from '../models/personne';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -49,6 +49,13 @@ export class ListPersonsService {
   }
 
   deletePersonAPI(id) {
+    let mytoken = localStorage.getItem('mytoken')
+    if(mytoken)
+    {
+      let headerReq = new HttpHeaders({'Authorization' : 'bearer ' + mytoken});
+      return this.http.delete(`${this.link}/${id}`, {headers : headerReq});
+    }
+    
     return this.http.delete(`${this.link}/${id}`);
   }
 
@@ -58,6 +65,12 @@ export class ListPersonsService {
   }
 
   updatePersonAPI(p) {
+    let mytoken = localStorage.getItem('mytoken')
+    if(mytoken)
+    {
+      let headerReq = new HttpHeaders({'Authorization' : 'bearer ' + mytoken});
+        return this.http.put(`${this.link}/${p._id}`, p, {headers: headerReq});
+    }
     return this.http.put(`${this.link}/${p._id}`, p);
   }
 }
